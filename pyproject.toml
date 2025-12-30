@@ -1,0 +1,43 @@
+
+name = "datalint"
+version = "0.1.0"
+description = "Automated data validation for ML teams"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "DataLint Team", email = "team@datalint.ai"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "pandas==2.0.3",
+    "numpy==1.24.3",
+    "click==8.1.3",
+    "pyyaml==6.0",
+    "jinja2==3.1.2",
+    "openpyxl==3.1.2",
+    "scipy==1.10.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/STABLE-TURBO/datalint"
+Repository = "https://github.com/STABLE-TURBO/datalint"
+Issues = "https://github.com/STABLE-TURBO/datalint/issues"
+Documentation = "https://datalint.readthedocs.io/"
+
+[project.scripts]
+datalint = "datalint.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
