@@ -1,0 +1,38 @@
+name: Data Validation
+
+on:
+  push:
+    paths:
+      - 'data/**'
+  pull_request:
+    paths:
+      - 'data/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install DataLint
+      run: |
+        pip install datalint
+
+    - name: Validate datasets
+      run: |
+        find data -name "*.csv" -o -name "*.xlsx" | while read file; do
+          echo "Validating $file"
+          datalint validate "$file" --format json --output "${file%.csv}.json"
+        done
+
+    - name: Upload validation reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: validation-reports
+        path: data/*.json
