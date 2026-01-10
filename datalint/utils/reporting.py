@@ -14,7 +14,7 @@ class TextFormatter(Formatter):
     
     def format(self, results: List[ValidationResult]) -> str:
         lines = []
-        lines.append("🔍 DataLint Validation Report")
+        lines.append("[*] DataLint Validation Report")
         lines.append("=" * 40)
 
         total_checks = len(results)
@@ -25,7 +25,7 @@ class TextFormatter(Formatter):
         lines.append("")
 
         for result in results:
-            icon = "✅" if result.passed else ("⚠️" if result.status == "warning" else "❌")
+            icon = "[PASS]" if result.passed else ("[WARN]" if result.status == "warning" else "[FAIL]")
             lines.append(f"{icon} {result.name.replace('_', ' ').title()}")
 
             if not result.passed:
@@ -33,14 +33,14 @@ class TextFormatter(Formatter):
                     lines.append(f"  • {issue}")
 
                 for rec in result.recommendations:
-                    lines.append(f"  💡 {rec}")
+                    lines.append(f"  -> {rec}")
 
             lines.append("")
 
         if failed_checks > 0:
-            lines.append("💡 Tip: Address failed checks before training ML models")
+            lines.append("Tip: Address failed checks before training ML models")
         else:
-            lines.append("🎉 Dataset looks good for ML training!")
+            lines.append("Dataset looks good for ML training!")
 
         return "\n".join(lines)
 

@@ -1,4 +1,4 @@
-
+[project]
 name = "datalint"
 version = "0.1.0"
 description = "Automated data validation for ML teams"

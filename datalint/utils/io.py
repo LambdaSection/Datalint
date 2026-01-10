@@ -1,12 +1,9 @@
+import os
 import pandas as pd
 import click
 from pathlib import Path
-from typing import Iterator, Optional, Dict, List, Any
+from typing import Iterator, Optional, Dict, List, Any, Union
 
-def load_dataset(filepath: str, chunksize: Optional[int] = None) -> pd.DataFrame:
-import os
-from pathlib import Path
-from typing import Iterator, Optional, Union
 
 def validate_path(filepath: str) -> Path:
     """
