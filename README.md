@@ -376,7 +376,7 @@ flowchart LR
 ## Roadmap
 
 - [x] **Phase 1**: Core validation engine with CLI
-- [ ] **Phase 2**: Learning system (auto-generate rules from clean data)
+- [x] **Phase 2**: Learning system (profile command with `--learn` and `--profile`)
 - [ ] **Phase 3**: HTML reports + GitHub Actions integration
 - [ ] **Phase 4**: Web dashboard + team collaboration
 
