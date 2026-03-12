@@ -210,7 +210,7 @@ When ANY rule file is updated, ALL rule files MUST be updated:
 - AGENTS.md
 - AI_GUIDELINES.md
 - .cursorrules
-- copilot-instructions.md
+- copilot-instructions.md (master source synced into project `.github/copilot-instructions.md` targets)
 - GAD.md
 
 **Enforcement**: SYNC immediately to all files, document in SYNC_LOG.md.
@@ -543,7 +543,7 @@ IF a session starts:
 ## RULE 33: Global Rule Parity and Mandatory Cross-Branch Sync -- CRITICAL
 
 ### Rule
-The AI rule set (AGENTS.md, AI_GUIDELINES.md, .cursorrules) represents the immutable "Physical Laws" of the repository ecosystem. Rules are **global** and MUST NOT vary between branches. 
+The AI rule set (AGENTS.md, AI_GUIDELINES.md, .cursorrules, GAD.md, and the master copilot-instructions.md source synced into `.github/copilot-instructions.md`) represents the immutable "Physical Laws" of the repository ecosystem. Rules are **global** and MUST NOT vary between branches. 
 
 ### Authority Restriction
 Only branches with the **`ceo/`** scope have the authority to modify rule files. Any rule changes attempted on `infra/`, `feat/`, or other branches MUST be rejected by the AI Agent. Non-CEO branches MUST merge rule updates FROM a `ceo/` branch to maintain parity.
@@ -591,7 +591,8 @@ Only branches with the **`ceo/`** scope have the authority to modify rule files.
 - Linear must expose done, in progress, backlog, blockers, and current progress for CEO work.
 - If the dashboard is incomplete, stop and restore visibility.
 
-## RULE 45: Mandatory Pull Request Analysis and Improvement — MANDATORY
+
+## RULE 45: Mandatory Pull Request Analysis and Improvement — MANDATORY
 
 ### Rule
 Every Pull Request (PR) MUST be strictly analyzed for code quality, security, and architectural alignment. Minimal compliance is NOT sufficient; the AI Agent MUST proactively identify and implement improvements to technical debt, documentation, or performance.

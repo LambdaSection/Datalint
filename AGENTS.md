@@ -986,7 +986,7 @@ IF milestone reached without validation:
 
 ### Rule
 
-When ANY rule file is updated, ALL rule files MUST be updated to include the same rule. Rules must be consistent across AGENTS.md, AI_GUIDELINES.md, .cursorrules, copilot-instructions.md, and GAD.md.
+When ANY rule file is updated, ALL rule files MUST be updated to include the same rule. Rules must be consistent across AGENTS.md, AI_GUIDELINES.md, .cursorrules, GAD.md, and the Copilot instruction source file `copilot-instructions.md`, which is synced into project targets at `.github/copilot-instructions.md`.
 
 
 
@@ -2303,7 +2303,7 @@ IF a session starts:
 
 ### Rule
 
-The AI rule set (`AGENTS.md`, `AI_GUIDELINES.md`, `.cursorrules`, `copilot-instructions.md`, `GAD.md`) represents the immutable "physical laws" of the repository ecosystem. Rules are global and MUST NOT vary between branches or projects.
+The AI rule set (`AGENTS.md`, `AI_GUIDELINES.md`, `.cursorrules`, `GAD.md`, and the master `copilot-instructions.md` source synced into `.github/copilot-instructions.md`) represents the immutable "physical laws" of the repository ecosystem. Rules are global and MUST NOT vary between branches or projects.
 
 
 
@@ -2319,7 +2319,7 @@ Only branches with the `ceo/` scope have the authority to modify rule files. Any
 
 2. **Review Enforcement**: No pull request can be merged without explicitly confirming that the branch carries the current rule set.
 
-3. **Cross-Project Consistency**: Shared rule files MUST not drift across projects listed in `projects.txt`.
+3. **Cross-Project Consistency**: Shared rule files MUST not drift across projects listed in `projects.txt`. Missing repositories and duplicate entries in `projects.txt` are policy violations.
 
 
 

@@ -1,0 +1,8 @@
+- repo: local
+  hooks:
+    - id: kuro-rules-audit
+      name: kuro-rules audit
+      entry: python audit-rules.py --mode repo --scope all
+      language: system
+      pass_filenames: false
+      stages: [pre-commit]
