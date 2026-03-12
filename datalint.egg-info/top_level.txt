@@ -1,3 +1,6 @@
+book
 datalint
+dist
+docs
+scripts
 tests
-utils

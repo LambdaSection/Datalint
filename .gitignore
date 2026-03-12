@@ -8,3 +8,20 @@ STRATEGIES.md
 !.agent/scripts/
 X_Marketing_plan.md
 docs/marketing/
+
+# --- kuro-rules private research ---
+mom_test_results.md
+mom_test_script.md
+decision.md
+ideas.md
+architecture_notes.md
+concept/
+research/private/
+research/raw/
+research/interviews/
+research/contact-lists/
+notes-private.md
+contacts.csv
+leads.csv
+prospects.csv
+# --- end kuro-rules private research ---

@@ -1,0 +1,50 @@
+{
+  "column_profiles": {
+    "age": {
+      "type": "numeric",
+      "mean": 32.5,
+      "std": 7.230337321161287,
+      "min": 22.0,
+      "max": 45.0,
+      "quartiles": {
+        "0.25": 28.25,
+        "0.5": 31.0,
+        "0.75": 37.25
+      },
+      "outlier_bounds": [
+        14.75,
+        50.75
+      ]
+    },
+    "income": {
+      "type": "numeric",
+      "mean": 57800.0,
+      "std": 8891.943919451285,
+      "min": 45000.0,
+      "max": 75000.0,
+      "quartiles": {
+        "0.25": 52250.0,
+        "0.5": 56500.0,
+        "0.75": 61500.0
+      },
+      "outlier_bounds": [
+        38375.0,
+        75375.0
+      ]
+    },
+    "category": {
+      "type": "categorical",
+      "unique_count": 3,
+      "most_common": {
+        "A": 4,
+        "B": 4,
+        "C": 2
+      },
+      "missing_ratio": 0.0
+    }
+  },
+  "correlations": {
+    "[\"age\", \"income\"]": 0.9902773330460957
+  },
+  "sample_size": 10
+}

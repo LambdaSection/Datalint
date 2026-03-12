@@ -72,13 +72,14 @@ class RuleLearner:
     def _learn_numeric_profile(self, series: pd.Series) -> dict:
         """Learn statistical profile for numeric column."""
         clean_series = series.dropna()
+        # Convert numpy types to native python types for JSON serialization
         return {
             "type": "numeric",
-            "mean": clean_series.mean(),
-            "std": clean_series.std(),
-            "min": clean_series.min(),
-            "max": clean_series.max(),
-            "quartiles": clean_series.quantile([0.25, 0.5, 0.75]).to_dict(),
+            "mean": float(clean_series.mean()),
+            "std": float(clean_series.std()),
+            "min": float(clean_series.min()),
+            "max": float(clean_series.max()),
+            "quartiles": {k: float(v) for k, v in clean_series.quantile([0.25, 0.5, 0.75]).to_dict().items()},
             "outlier_bounds": self._calculate_outlier_bounds(clean_series),
         }
 

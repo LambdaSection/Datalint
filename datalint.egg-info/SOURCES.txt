@@ -1,4 +1,5 @@
 README.md
+pyproject.toml
 setup.py
 datalint/__init__.py
 datalint/cli.py
@@ -9,12 +10,17 @@ datalint.egg-info/entry_points.txt
 datalint.egg-info/requires.txt
 datalint.egg-info/top_level.txt
 datalint/engine/__init__.py
+datalint/engine/base.py
 datalint/engine/learner.py
 datalint/engine/profiler.py
 datalint/engine/validators.py
+datalint/utils/__init__.py
+datalint/utils/io.py
+datalint/utils/reporting.py
+scripts/generate_diagrams.py
+scripts/setup_demo.py
 tests/__init__.py
 tests/test_cli.py
+tests/test_integration.py
+tests/test_performance.py
 tests/test_validators.py
-utils/__init__.py
-utils/io.py
-utils/reporting.py
