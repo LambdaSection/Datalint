@@ -1,4 +1,4 @@
-# AGENTS.md – Strict Rules for AI Agents
+﻿# AGENTS.md — Strict Rules for AI Agents
 
 
 
@@ -14,7 +14,7 @@
 
 
 
-## RULE 1: Read Rules First – MANDATORY
+## RULE 1: Read Rules First — MANDATORY
 
 
 
@@ -52,13 +52,21 @@ IF agent starts working without reading rules:
 
 
 
-## RULE 2: Mom Test Gate – MANDATORY
+## RULE 2: Mom Test Gate — MANDATORY
 
 
 
 ### Rule
 
-Project CANNOT exceed 10% progress until Mom Test is COMPLETE. No production code allowed during Mom Test phase.
+Before applying the Mom Test gate, the agent MUST ask: **"Quel type de projet s'agit-il ?"** and classify the work as:
+- **Client-requested delivery**
+- **Verified problem (already validated with evidence)**
+- **Personal project**
+- **Startup project (requires Mom Test)**
+
+If the project is **client-requested**, a **verified problem**, or a **personal project**, Mom Test is **NOT required** (Rule 2 becomes **N/A**) and the agent must proceed with delivery/solutioning without initiating Mom Test artifacts.
+
+Otherwise, the project CANNOT exceed 10% progress until Mom Test is COMPLETE. No production code allowed during Mom Test phase.
 
 
 
@@ -71,6 +79,10 @@ Before ANY code implementation, VERIFY ALL of the following:
 | Requirement | Verification Method |
 
 |-------------|---------------------|
+
+| Project type confirmed | Ask user and record: client-requested / verified problem / personal / startup |
+
+| Mom Test required? | **If client-requested or verified problem: mark Rule 2 as N/A and skip the checks below** |
 
 | Minimum 5 interviews | Check `mom_test_results.md` has 5+ interview entries |
 
@@ -90,7 +102,11 @@ Before ANY code implementation, VERIFY ALL of the following:
 
 ```
 
-IF any checklist item is FALSE:
+IF project type is client-requested OR verified problem OR personal project:
+
+  ACTION: Mark Rule 2 as N/A and proceed (no Mom Test artifacts required)
+
+ELSE IF any checklist item is FALSE:
 
   ACTION: STOP implementation immediately
 
@@ -140,7 +156,7 @@ IF any checklist item is FALSE:
 
 
 
-## RULE 3: Progress Tracking – MANDATORY
+## RULE 3: Progress Tracking — MANDATORY
 
 
 
@@ -210,7 +226,7 @@ IF progress > actual completion:
 
 
 
-## RULE 4: Session Summary – MANDATORY
+## RULE 4: Session Summary — MANDATORY
 
 
 
@@ -224,7 +240,7 @@ Every session MUST update `SESSION_SUMMARY.md` with BOTH English and French vers
 
 ```markdown
 
-# Session Summary – YYYY-MM-DD
+# Session Summary — YYYY-MM-DD
 
 **Editor**: (VS Code | Cursor | Antigravity | Windsurf)
 
@@ -302,7 +318,7 @@ IF session ends without summary:
 
 
 
-## RULE 5: Testing Requirements – MANDATORY
+## RULE 5: Testing Requirements — MANDATORY
 
 
 
@@ -364,7 +380,7 @@ IF coverage < 60%:
 
 
 
-## RULE 6: Security Scanning – MANDATORY
+## RULE 6: Security Scanning — MANDATORY
 
 
 
@@ -428,7 +444,7 @@ IF security scan fails:
 
 
 
-## RULE 7: No Silent Failures – MANDATORY
+## RULE 7: No Silent Failures — MANDATORY
 
 
 
@@ -480,7 +496,7 @@ IF agent ignores a failure:
 
 
 
-## RULE 8: Critical Thinking – MANDATORY
+## RULE 8: Critical Thinking — MANDATORY
 
 
 
@@ -548,7 +564,7 @@ IF agent implements without questioning:
 
 
 
-## RULE 9: No Emojis Anywhere – MANDATORY
+## RULE 9: No Emojis Anywhere — MANDATORY
 
 
 
@@ -608,7 +624,7 @@ IF emoji found in any file:
 
 
 
-## RULE 10: File Protection – MANDATORY
+## RULE 10: File Protection — MANDATORY
 
 
 
@@ -678,7 +694,7 @@ IF protected file is committed:
 
 
 
-## RULE 11: Sync Rule – MANDATORY
+## RULE 11: Sync Rule — MANDATORY
 
 
 
@@ -724,7 +740,7 @@ IF rules are updated without sync:
 
 
 
-## RULE 12: Roadmap Adherence – MANDATORY
+## RULE 12: Roadmap Adherence — MANDATORY
 
 
 
@@ -804,7 +820,7 @@ IF code deviates from roadmap:
 
 
 
-## RULE 13: Roadmap Duration – MANDATORY
+## RULE 13: Roadmap Duration — MANDATORY
 
 
 
@@ -854,7 +870,7 @@ The roadmap progress contributes to overall SESSION_SUMMARY.md progress:
 
 |-----------|--------|-------------|
 
-| Roadmap Phase Completion | Sub-component of Core Functionality | (Completed Phases / Total Phases) Ã— 40% |
+| Roadmap Phase Completion | Sub-component of Core Functionality | (Completed Phases / Total Phases) × 40% |
 
 | Phase Quality | Multiplier | 0.5x (incomplete) to 1.0x (fully tested) |
 
@@ -880,13 +896,13 @@ IF roadmap duration < 1 month:
 
 
 
-## RULE 14: Periodic Validation – MANDATORY
+## RULE 14: Periodic Validation — MANDATORY
 
 
 
 ### Rule
 
-At progress milestones (25%, 50%, 75%, 90%, 95%), the product MUST be validated through Mom Test and Marketing Test before continuing.
+At progress milestones (25%, 50%, 75%, 90%, 95%), the product MUST be validated through Mom Test **if required** and Marketing Test before continuing.
 
 
 
@@ -916,7 +932,7 @@ At progress milestones (25%, 50%, 75%, 90%, 95%), the product MUST be validated 
 
 AT each milestone:
 
-  CHECK: Mom Test conducted with new users?
+  CHECK: Mom Test conducted with new users? (skip if Rule 2 is N/A)
 
   CHECK: Marketing Test metrics collected?
 
@@ -937,6 +953,8 @@ AT each milestone:
 
 
 ### Mom Test Requirements
+
+- Applies only when Rule 2 is NOT N/A (startup projects).
 
 - Interview minimum 3-5 new users at each milestone
 
@@ -980,7 +998,7 @@ IF milestone reached without validation:
 
 
 
-## RULE 15: Rule Synchronization – MANDATORY
+## RULE 15: Rule Synchronization — MANDATORY
 
 
 
@@ -1028,7 +1046,7 @@ IF rules are inconsistent across files:
 
 
 
-## RULE 16: Working Demos – MANDATORY
+## RULE 16: Working Demos — MANDATORY
 
 
 
@@ -1092,7 +1110,7 @@ IF milestone reached without 2 working demos:
 
 
 
-## RULE 17: Deep Understanding Before Phase Transition – MANDATORY
+## RULE 17: Deep Understanding Before Phase Transition — MANDATORY
 
 
 
@@ -1180,7 +1198,7 @@ IF phase transition requested without deep understanding:
 
 
 
-## RULE 18: Regression Prevention – MANDATORY
+## RULE 18: Regression Prevention — MANDATORY
 
 
 
@@ -1232,7 +1250,7 @@ IF a regression is detected:
 
 
 
-## RULE 19: Strict Versioning – MANDATORY
+## RULE 19: Strict Versioning — MANDATORY
 
 
 
@@ -1278,7 +1296,7 @@ IF milestone reached without version tag:
 
 
 
-## RULE 20: Hard Milestone Lock – CRITICAL
+## RULE 20: Hard Milestone Lock — CRITICAL
 
 
 
@@ -1326,7 +1344,7 @@ IF a milestone is reached and "VALIDATION_PASSED" is NOT found in SESSION_SUMMAR
 
 
 
-## RULE 21: Intelligence Harvester – MANDATORY
+## RULE 21: Intelligence Harvester — MANDATORY
 
 
 
@@ -1378,7 +1396,7 @@ IF milestone reached without Intelligence Report:
 
 
 
-## RULE 22: Feature Focus Rule – MANDATORY
+## RULE 22: Feature Focus Rule — MANDATORY
 
 
 
@@ -1428,7 +1446,7 @@ IF validation involves multiple shallow features or lacks a single focus:
 
 
 
-## RULE 23: Knowledge Capture – MANDATORY
+## RULE 23: Knowledge Capture — MANDATORY
 
 
 
@@ -1472,7 +1490,7 @@ IF a project pivots without a post-mortem:
 
 
 
-## RULE 24: Marketing & Outreach Guardian – MANDATORY
+## RULE 24: Marketing & Outreach Guardian — MANDATORY
 
 
 
@@ -1542,7 +1560,7 @@ When asking "Did you follow AGENTS.md?", the agent MUST provide:
 
 1.  **Rule 1**: "I read AGENTS.md at the start of this session"
 
-2.  **Rule 2**: "Mom Test status: [COMPLETE/IN PROGRESS/NOT STARTED]"
+2.  **Rule 2**: "Mom Test status: [COMPLETE/IN PROGRESS/NOT STARTED/N-A (client-requested or verified problem)]"
 
 3.  **Rule 3**: "Progress: X% (calculated as: [breakdown])"
 
@@ -1627,7 +1645,7 @@ When asking "Did you follow AGENTS.md?", the agent MUST provide:
 814: **Rule 47**: "History Preservation: SESSION_SUMMARY.md history preserved? [YES/NO]"
 48. **Rule 48**: "Word Backup: .docx backup created at end of session? [YES/NO]"
 49. **Rule 49**: "Centralized Marketing Memory: Research synced to kuro-rules/MARKETING_MEMORY/? [YES/NO]"
-50. **Rule 50**: "Centralized Mom Test Memory: mom_test data mirrored to kuro-rules/KNOWLEDGE_BASE/mom_tests/? [YES/NO]"
+50. **Rule 50**: "Centralized Mom Test Memory: mom_test data mirrored to kuro-rules/KNOWLEDGE_BASE/mom_tests/? [YES/NO/N-A]"
 
 
 
@@ -1645,7 +1663,7 @@ When asking "Did you follow AGENTS.md?", the agent MUST provide:
 
 | Rule 1 (Read First) | STOP and read rules |
 
-| Rule 2 (Mom Test) | STOP implementation, complete deliverables |
+| Rule 2 (Mom Test) | STOP implementation, complete deliverables (unless client-requested or verified problem; then N/A) |
 
 | Rule 3 (Progress) | Recalculate with pessimistic estimate |
 
@@ -1751,7 +1769,7 @@ These rules are NON-NEGOTIABLE. They exist to ensure:
 
 
 
-## RULE 25: MLOps/DevOps Collaboration – MANDATORY
+## RULE 25: MLOps/DevOps Collaboration — MANDATORY
 
 
 
@@ -1797,7 +1815,7 @@ IF providing MLOps/DevOps assistance:
 
 
 
-## RULE 26: DevOps/MLOps Milestone Task Generation – MANDATORY
+## RULE 26: DevOps/MLOps Milestone Task Generation — MANDATORY
 
 
 
@@ -1843,7 +1861,7 @@ IF a milestone is reached:
 
 
 
-## RULE 27: Persona Adaptability – MANDATORY
+## RULE 27: Persona Adaptability — MANDATORY
 
 
 
@@ -1893,7 +1911,7 @@ When in doubt, ASK the user. Do not assume.
 
 
 
-## RULE 28: Linear Automation and DevOps Review – MANDATORY
+## RULE 28: Linear Automation and DevOps Review — MANDATORY
 
 
 
@@ -1985,7 +2003,7 @@ IF the DevOps/MLOps engineer submits work:
 
 
 
-## RULE 29: Mandatory Linear Integration – CRITICAL
+## RULE 29: Mandatory Linear Integration — CRITICAL
 
 
 
@@ -2057,7 +2075,7 @@ IF a new team member joins:
 
 
 
-## RULE 30: Mandatory Branch Creation – CRITICAL
+## RULE 30: Mandatory Branch Creation — CRITICAL
 
 
 
@@ -2970,89 +2988,6 @@ IF CEO cannot see complete task list in Linear:
   DO NOT: Proceed until visibility is complete
 
 
-
-IF progress is outdated (>1 hour):
-
-  ACTION: Trigger immediate sync
-
-  ACTION: Verify workflow execution
-
-  DO NOT: Allow stale data
-
-```
-
-
-
----
-
-
-
-
-
-
-
-## RULE 46: Regression and Mojibake Protection — MANDATORY
-
-
-
-### Rule
-
-AI agents MUST prevent regressions and encoding errors (Mojibake) by verifying the entire system state after any modification. Any use of special characters in French or other languages MUST be verified to maintain UTF-8 integrity.
-
-
-
-### Enforcement
-
-- REJECT: Any commit containing Mojibake or broken file encodings.
-
-- ACTION: Use Python scripts for encoding repair if PowerShell or terminal-based redirection fails.
-
-
-
----
-
-
-
-## RULE 47: History Preservation — MANDATORY
-
-
-
-### Rule
-
-Historical logs, specifically `SESSION_SUMMARY.md` and `SYNC_LOG.md`, MUST NEVER be overwritten or truncated. New entries MUST be prepended to the top of the file to maintain a continuous, chronological record of the project heritage.
-
-
-
-### Verification
-
-```
-
-BEFORE updating SESSION_SUMMARY.md:
-
-  1. READ existing content
-
-  2. PREPARE new entry
-
-  3. COMBINE by prepending new entry to existing content
-
-  4. VERIFY: Previous summaries are still present at the bottom
-
-  DO NOT: Use Overwrite=true/EmptyFile=true without preserving content
-
-```
-
-
-
-### Enforcement
-
-  DO NOT: Continue until visibility is restored
-
-IF progress is outdated (>24h old):
-  ACTION: Update Linear immediately
-  ACTION: Document reason for delay
-  DO NOT: Allow stale progress data
-```
-
 ---
 
 ## RULE 38: Mandatory Code Review After Commit -- MANDATORY
@@ -3211,9 +3146,7 @@ IF progress is outdated (>1 hour):
 
 ---
 
-
-
-## RULE 46: Regression and Mojibake Protection — MANDATORY
+## RULE 41: Encoding Integrity & Regression Prevention -- MANDATORY
 
 ### Rule
 AI agents MUST prevent regressions and encoding errors (Mojibake) by verifying the entire system state after any modification. Any use of special characters in French or other languages MUST be verified to maintain UTF-8 integrity.
@@ -3224,7 +3157,7 @@ AI agents MUST prevent regressions and encoding errors (Mojibake) by verifying t
 
 ---
 
-## RULE 47: History Preservation — MANDATORY
+## RULE 42: Historical Log Preservation -- MANDATORY
 
 ### Rule
 Historical logs, specifically `SESSION_SUMMARY.md` and `SYNC_LOG.md`, MUST NEVER be overwritten or truncated. New entries MUST be prepended to the top of the file to maintain a continuous, chronological record of the project heritage.
@@ -3250,7 +3183,7 @@ IF history is deleted or overwritten:
 
 ---
 
-## RULE 48: Word Backup -- MANDATORY
+## RULE 43: Word Backup -- MANDATORY
 
 ### Rule
 At the end of every session or after any significant document update, key deliverables (SESSION_SUMMARY.md and major governance docs) MUST be backed up as a Word document (.docx) in the corresponding project folder under `Mes Documents/Docs/<ProjectName>/`.
@@ -3271,7 +3204,7 @@ IF session ends without Word backup:
 
 ---
 
-## RULE 49: Centralized Marketing Memory -- MANDATORY
+## RULE 44: Centralized Marketing Memory -- MANDATORY
 
 ### Rule
 All marketing research, pain-point due diligence (Perplexity, Grok, Reddit, App Store, forums), and campaign data MUST be centralized in `kuro-rules/MARKETING_MEMORY/`. No marketing intelligence is allowed to remain siloed in a single project folder.
@@ -3294,14 +3227,16 @@ IF marketing data exists only in a project-local folder:
 
 ---
 
-## RULE 50: Centralized Mom Test Memory -- MANDATORY
+## RULE 45: Centralized Mom Test Memory -- MANDATORY
 
 ### Rule
+Applies ONLY when Mom Test is required/performed. If the project type is client-requested or a verified problem, this rule is **N/A**.
+
 All Mom Test interview results (mom_test_results.md), interview scripts (mom_test_script.md), and Go/No-Go decisions (decision.md) MUST be mirrored to a central cross-project archive inside `kuro-rules/KNOWLEDGE_BASE/mom_tests/<ProjectName>/` at the end of each session where such data is produced or updated.
 
 ### Verification Checklist
 ```
-AFTER any Mom Test interview session or decision update:
+AFTER any Mom Test interview session or decision update (when required):
   1. COPY: mom_test_results.md -> kuro-rules/KNOWLEDGE_BASE/mom_tests/<project>/
   2. COPY: decision.md -> kuro-rules/KNOWLEDGE_BASE/mom_tests/<project>/
   3. VERIFY: Data is present in the central repo.
@@ -3309,7 +3244,174 @@ AFTER any Mom Test interview session or decision update:
 
 ### Enforcement
 ```
-IF Mom Test data remains only in the project repo:
+IF Mom Test data exists and remains only in the project repo:
   ACTION: STOP and mirror data to kuro-rules/KNOWLEDGE_BASE/mom_tests/ immediately.
   DO NOT: Lose qualitative user data by leaving it siloed.
+```
+
+---
+
+## RULE 46: Web/GUI Debugging Protocol & 80% Coverage — MANDATORY
+
+### Rule
+The AI Agent MUST follow a strictly systematic protocol when debugging web applications or GUIs to prevent "silent regressions" and "ghost bugs". Before transitioning to any new architectural phase, the project MUST achieve **80% debug web coverage** (stable core flows, zero silent console errors).
+
+### Protocol Steps (The "Web-Debug-7" Protocol)
+1. **Console First**: Inspect browser console for errors and warnings. Report the exact error message and stack trace.
+2. **Network Inspection**: For any data flow issue, inspect the Network tab. Check HTTP status codes (2xx, 4xx, 5xx), response payloads, and latency.
+3. **State Audit**: Verify component state, props, and context (React/Vue/Svelte). Ensure the frontend state is synchronized with the backend.
+4. **Backend Correlation**: Cross-reference frontend errors with backend logs (FastAPI, Node.js, etc.) using timestamps.
+5. **DOM/Style Verification**: Inspect the DOM for layout issues, hidden elements (z-index, display: none), and ID collisions.
+6. **Storage & Auth**: Verify LocalStorage, SessionStorage, and Cookies. Ensure authentication tokens are valid and not expired.
+7. **Regression Suite**: After any fix, run the entire UI and E2E test suite (Playwright, Cypress, Vitest) to ensure no regressions.
+
+### 80% Coverage Verification
+- **Stable Core Flows**: Authentication, persistence, and primary AI interactions (chat/generation) function without failure.
+- **Zero Silenced Errors**: The browser console MUST be free of 4xx/5xx errors or unhandled exceptions in primary flows.
+- **Regression Tests**: All previously fixed bugs MUST be verified with a regression suite.
+
+### Enforcement
+- NEVER declare a bug "fixed" without providing evidence from at least 3 of the 7 steps above.
+- IF coverage < 80%: STOP and continue debugging. DO NOT transition to new features.
+- IF a bug is complex, CREATE a "Debug Trace" artifact documenting the findings from steps 1-4.
+
+---
+
+## RULE 47: Build In Public (Daily X Vlog) — MANDATORY
+
+### Rule
+At the end of every work session, the agent MUST generate a short, engaging summary tweet (vlog format) about the day's progress for Twitter/X. This enforces the "Build in Public" marketing strategy.
+
+### Verification Checklist
+```
+AT END of session:
+  1. DRAFT: A Twitter-ready summary of the day's work
+  2. INCLUDE: One technical challenge solved, one validation signal, or a visual demo
+  3. FORMAT: Short, punchy, NO EMOJIS (Rule 9)
+  4. PRESENT: Show the draft to the user in the notify_user message
+```
+
+### Enforcement
+IF session ends without an X vlog draft:
+  ACTION: Create the draft immediately
+  DO NOT: Skip this marketing step
+
+---
+
+## RULE 48: Market Gravity Test (B2C Validation) — MANDATORY
+
+### Rule
+When traditional B2B Mom Test outreach (Rule 2) fails due to unresponsiveness in B2C/Indie markets, the project CAN pivot to a "Market Gravity Test". This requires a Scorecard, an Evidence Matrix, AND "Skin in the game" metrics.
+
+### Requirements for Gravity Test (Replacing Mom Test)
+1. **Evidence Matrix**: Must contain high-quality desk research signals (pricing, competitors).
+2. **Scorecard**: Must track Urgency, Budget Signal, Integration Load, etc.
+3. **Skin in the Game Metric**: The user MUST build a high-conversion landing page or waitlist AND drive targeted traffic to it (via Reddit/X/Ads). 
+4. **Validation Threshold**: Instead of 5 interviews, validation requires either:
+   - 50+ qualified email signups (with intent)
+   - $100+ in pre-sales/deposits
+
+### Verification
+```
+IF Mom Test is blocked by unresponsive users:
+  1. ASK: "Do you want to switch to the Market Gravity Test?"
+  2. IF YES: Create Evidence Matrix, Scorecard, and plan the Landing Page "Trap".
+  3. DO NOT: Write backend production code until the Skin in the Game metric is met.
+```
+
+---
+
+## RULE 49: Strict Mom Test Simulation Bypass — MANDATORY
+
+### Rule
+If real-world B2C users are unresponsive, the agent can perform an "Adversarial Mom Test Simulation" as a proxy. The simulation's absolute goal is to INVALIDATE and BREAK the user's idea, never to confirm it. If the simulation remains realistic, strict, and the idea survives the adversarial attacks, it CAN bypass the traditional Mom Test gate (Rule 2).
+
+### Requirements
+1. **Adversarial Setup**: Introduce severe, realistic blockers (e.g., data gravity, AWS lock-in, terrible UX limitations).
+2. **Rejection Mandate**: At least one simulated persona MUST reject the project entirely with valid, unresolvable reasons.
+3. **Approval**: The user must review and confirm the simulation was sufficiently "strict" before unlocking the gate.
+
+---
+
+## RULE 50: Project Documentation Link (Google Docs) — MANDATORY
+
+### Rule
+The AI MUST natively ask the user for a shared Google Docs link associated with the active project (if one is not provided). Because the AI cannot reliably write directly to external Google Docs interfaces via API natively, the AI MUST generate a localized, perfectly formatted summary block intended for the Google Doc at the end of each session. The user will copy/paste this block.
+
+### Verification Checklist
+```
+AT the end of each session:
+  1. VERIFY: Has a summary block been generated specifically for the Google Doc?
+  2. OUTPUT: Provide the clean text in the chat for the user to copy/paste.
+```
+
+### Enforcement
+```
+IF the session ends without generating the Google Docs summary block:
+  ACTION: Generate the Google Docs summary immediately in chat.
+  DO NOT: End the session without providing the copy/paste material if the user has requested Google Docs integration.
+```
+
+---
+
+## RULE 51: Profile README Synchronization — MANDATORY
+
+### Rule
+At the end of any session or milestone that results in new learnings, project progression (percentage updates), or new projects added to a ╬╗-Section, the AI MUST proactively update the user's Github Profile `README.md` (`Lemniscate-world/Lemniscate-world/README.md`) to reflect these new metrics natively.
+
+### Verification Checklist
+```
+WHEN a session updates project percentages or architectures:
+  1. CHECK: Did the project progression change?
+  2. IF YES: Update the `README.md` at `Lemniscate-world/Lemniscate-world` locally.
+```
+
+### Enforcement
+```
+IF progress is updated but the profile README is not:
+  ACTION: Update the central profile README immediately before closing the task.
+```
+
+---
+
+## RULE 52: Advanced Skills & Competency Tracking — MANDATORY
+
+### Rule
+The AI MUST continuously monitor and evaluate the user's skill progression based on the complexity of the tasks accomplished during the session. If the user learns a new concept, masters a framework, or demonstrates increased proficiency in an existing skill, the AI MUST proactively update the "Advanced & Precise Skills" section in the user's Github Profile `README.md` (`Lemniscate-world/Lemniscate-world/README.md`), adjusting the percentages upwards. Novel skills discovered during projects MUST be added as new badges.
+
+### Verification Checklist
+```
+AT the end of each session:
+  1. ANALYZE: What new skills (languages, math concepts, architectures) were utilized or learned today?
+  2. CHECK: Are these skills listed in the Profile README's "Advanced & Precise Skills" section?
+  3. UPDATE: Modify the `README.md` locally to increase the percentage of utilized skills or add new skill badges.
+```
+
+### Enforcement
+```
+IF the user successfully completes a complex task utilizing a demonstrable skill:
+  ACTION: Update the skill percentage in the Profile README.
+  DO NOT: Ignore skill progression. The Profile README must serve as a live telemetry of the user's capabilities.
+```
+
+
+---
+
+## RULE 53: PR Analysis Feedback â€” MANDATORY
+
+### Rule
+After each Pull Request analysis, the AI Agent MUST list the corrections made or recommended, and extract a learning rule or guideline. This feedback MUST be formatted specifically to be sent to the collaborator so they can improve.
+
+### Verification Checklist
+```
+AFTER PR analysis:
+  1. CHECK: Has a list of corrections/recommendations been generated?
+  2. CHECK: Has a pedagogical rule/guideline been formulated for the collaborator?
+```
+
+### Enforcement
+```
+IF feedback is missing after PR analysis:
+  ACTION: STOP and generate the feedback immediately
+  DO NOT: End the PR analysis without providing the learning feedback.
 ```
